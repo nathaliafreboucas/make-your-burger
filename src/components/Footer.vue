@@ -4,10 +4,12 @@
     </footer>
 </template>
 <script>
+import { defineComponent } from "vue"
 
-export default {
+
+export default defineComponent({
     name: 'Footer'
-}
+})
 </script>
 
 <style scoped>

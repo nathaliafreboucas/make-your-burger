@@ -8,14 +8,15 @@
   
 </template>
 <script>
+import { defineComponent } from 'vue';
 import Dashboard from '../components/Dashboard.vue';
 
-export default {
+export default defineComponent({
   name: 'Pedidos',
   components: {
     Dashboard
   }
-}
+})
 </script>
 
 <style>

@@ -35,9 +35,10 @@
     </div>
 </template>
 <script>
+import { defineComponent } from 'vue';
 import Message from './Message.vue';
 
-export default {
+export default defineComponent({
     name: 'Dashboard',
     components: {
         Message
@@ -52,7 +53,7 @@ export default {
     },
     methods: {
         async getPedidos() {
-            const req = await fetch('http://localhost:3000/burgers');
+            const req = await fetch('https://makeyourburgerapi.herokuapp.com/burgers');
             const res = await req.json();
             this.burgers = res;
 
@@ -61,14 +62,14 @@ export default {
         },
 
         async getStatus(){
-            const req = await fetch('http://localhost:3000/status');
+            const req = await fetch('https://makeyourburgerapi.herokuapp.com/status');
             const data = await req.json();
 
             this.status = data;
         },
 
         async deleteBurger(id){
-            const req = await fetch(`http://localhost:3000/burgers/${id}`,{
+            const req = await fetch(`https://makeyourburgerapi.herokuapp.com/burgers/${id}`,{
                 method: "DELETE"
             });
             const res = await req.json();
@@ -85,7 +86,7 @@ export default {
             const option = e.target.value;
             const dataJson = JSON.stringify({status: option});
 
-            const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+            const req = await fetch(`https://makeyourburgerapi.herokuapp.com/burgers/${id}`, {
                 //o PATCH é como se fosse o update(PUT), mas ele só atualiza o que enviamos
                 method: "PATCH",
                 headers: {"Content-Type": "application/json"},
@@ -102,7 +103,7 @@ export default {
     mounted(){
         this.getPedidos();
     }
-}
+})
 </script>
 <style scoped>
     #burger-table {

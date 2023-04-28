@@ -41,10 +41,11 @@
     </div>
 </template>
 <script>
+import { defineComponent } from 'vue';
 import Message from './Message.vue';
 
 
-export default {
+export default defineComponent({
     name: 'Burgerform',
     components: {
         Message
@@ -69,7 +70,7 @@ export default {
 
     methods: {
         async getIngredientes(){
-            const req = await fetch("http://localhost:3000/ingredientes");
+            const req = await fetch("https://makeyourburgerapi.herokuapp.com/ingredientes");
             const data = await req.json();
             
             this.paes = data.paes;
@@ -87,7 +88,7 @@ export default {
                 msg: null
             }
             const dataJson = JSON.stringify(data);
-            const req = await fetch('http://localhost:3000/burgers',{
+            const req = await fetch('https://makeyourburgerapi.herokuapp.com/burgers',{
                 method: "POST",
                 headers:{
                     "Content-Type": "application/json"
@@ -116,7 +117,7 @@ export default {
     
     }  
 
-}   
+})   
 </script>
 
 <style scoped>

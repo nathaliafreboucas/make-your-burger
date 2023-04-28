@@ -10,17 +10,18 @@
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 import Banner from '../components/Banner.vue';
 import Burgerform from '../components/Burgerform.vue';
 
-export default{
+export default defineComponent({
   name: 'HomeView',
   components:{
     Banner,
     Burgerform
   },
   
-}
+})
 
 </script>
 <style>

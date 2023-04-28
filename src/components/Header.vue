@@ -7,9 +7,10 @@
 <script>
 import Navbar from './Navbar.vue';
 import Banner from './Banner.vue';
+import { defineComponent } from 'vue';
 
 
-export default {
+export default defineComponent({
     name: 'Header',
     components: {
         Navbar,
@@ -21,7 +22,7 @@ export default {
       app_name: "Make Your Burger"
     }
   }
-}
+})
 </script>
 
 <style>
